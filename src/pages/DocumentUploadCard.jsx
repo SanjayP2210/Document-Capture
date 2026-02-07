@@ -135,7 +135,7 @@ const DocumentUploadCard = forwardRef(({ formData }, ref) => {
           {/* Header */}
           <div>
             <div className="upload-title">
-              <h2>Scan Your Document</h2>
+              <h2>Capture Your Document</h2>
             </div>
           </div>
 
