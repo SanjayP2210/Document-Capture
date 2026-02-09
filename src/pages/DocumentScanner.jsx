@@ -502,19 +502,12 @@ const DocumentScanner = ({
       >{`Capture Documents`}</ModalHeader>
       <ModalBody className="text-center">
         {!capturedImage && <CardTitle className="text-danger"><h6 className="m-0"> Place the document inside the frame and capture</h6></CardTitle>}
-        <div style={{ maxWidth: 700, margin: "auto", padding: 20 }}>
+        <div className="scanner-container">
           {loading && <div><p>...Loading camera...</p> </div>}
           {error && <div className="error">{error}</div>}
           {!loading && !capturedImage && (
             <>
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  aspectRatio: "16/9",
-                  background: "black",
-                }}
-              >
+              <div className="camera-box">
                 <Webcam
                   className="web-cam"
                   ref={webcamRef}
