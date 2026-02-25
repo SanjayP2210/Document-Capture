@@ -1,8 +1,8 @@
 import {
-  IconX,
+  IconDownload,
   IconEye,
   IconFileDescription,
-  IconDownload
+  IconX
 } from "@tabler/icons-react";
 import {
   forwardRef,
@@ -12,25 +12,21 @@ import {
   useState
 } from "react";
 import {
+  Button,
   Card,
   CardBody,
   CardImg,
   Col,
-  Button,
   Row
 } from "reactstrap";
 import DocumentScanner from "./DocumentScanner";
-import DocumentUploadCollapse from "./DocumentUploadCollapse";
 
 const DocumentUploadCard = forwardRef(({ formData }, ref) => {
   const [modal, setModal] = useState(false);
   const [selectedDocType, setSelectedDocType] = useState(null);
   const [capturedImage, setCapturedImage] = useState();
   const [capturedImages, setCapturedImages] = useState({
-    emiratesFrontImage: null,
-    emiratesBackImage: null,
-    visaCopyDocuments: null,
-    passportDocuments: null,
+    document: null,
   });
 
   useEffect(() => {
@@ -54,10 +50,6 @@ const DocumentUploadCard = forwardRef(({ formData }, ref) => {
     setCapturedImage(null);
   };
 
-  useImperativeHandle(ref, () => ({
-    getCapturedImages: () => capturedImages,
-  }));
-
   const handlePreview = (image) => {
     setCapturedImage(image);
     setModal(true);
@@ -68,7 +60,6 @@ const DocumentUploadCard = forwardRef(({ formData }, ref) => {
     setCapturedImage(null);
   };
 
-  
   const handleDownload = (image) => {
     if (!image) return;
 
@@ -79,6 +70,10 @@ const DocumentUploadCard = forwardRef(({ formData }, ref) => {
     link.click();
     document.body.removeChild(link);
   };
+
+  useImperativeHandle(ref, () => ({
+    getCapturedImages: () => capturedImages,
+  }));
 
   const ImageCard = ({ image, title, onSelect }) => (
     <Col className="text-center d-flex justify-content-center">
@@ -131,7 +126,6 @@ const DocumentUploadCard = forwardRef(({ formData }, ref) => {
       </Card>
     </Col>
   );
-
 
   return (
     <Row>
