@@ -1,7 +1,7 @@
 import React from "react";
 import { Spinner } from "reactstrap";
 
-const CameraLoader = ({msg}) => {
+const CameraLoader = () => {
   return (
   <div className="status mt-3">
     <div>

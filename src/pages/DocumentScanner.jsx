@@ -187,12 +187,11 @@ const DocumentScanner = ({
           />
         </div>
 
-        {/* 🔥 LOADER */}
           {/* 🔥 LOADER */}
           {loading || isSwitching && (
               <div className="emirate-loader">
                   {" "}
-                  <CameraLoader msg={isSwitching ? 'Switching' : 'Initializing'} />
+                  <CameraLoader/>
               </div>
           )}
           {cameraError &&
